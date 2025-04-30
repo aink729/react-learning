@@ -1,5 +1,4 @@
 import { useState } from "react"; // 상태 관리용 hook (모달 여닫을때 사용)
-
 import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 호출
 import './Card.css'; // css 파일 불러오기
 import ConfirmModal from './ConfirmModal';
@@ -45,6 +44,7 @@ export default function Card({ id, title, content, price, imageUrl }) {
                   />
                 );
               }
+
 
     return (
          // 👉 여기는 JSX 반환 (HTML 구조, 실제로 화면에 표시할 JSX만 작성)
