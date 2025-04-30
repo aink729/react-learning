@@ -1,7 +1,8 @@
-import { useState } from "react"; // 상태 관리용 hook (모달 여닫을때 사용)
+// import { useState } from "react"; // 상태 관리용 hook (모달 여닫을때 사용)
 import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 호출
 import './Card.css'; // css 파일 불러오기
-import ConfirmModal from './ConfirmModal';
+import useModal from '../hooks/useModal';
+import ConfirmModal from './ConfirmModal'; // 모달 컴포넌트 호출
 
 //컴포넌트는 "준비 영역(위쪽)" + "실행 결과 반환(return)"
 export default function Card({ id, title, content, price, imageUrl }) {
@@ -9,7 +10,8 @@ export default function Card({ id, title, content, price, imageUrl }) {
   // 여기에 변수, 함수, 조건문 등 자유롭게 작성 가능
 
         const navigate = useNavigate();
-        const [showModal, setShowModal] = useState(false);
+        // const [showModal, setShowModal] = useState(false);
+        const { isOpen, openModal, closeModal } = useModal();
 
 
 
@@ -29,18 +31,18 @@ export default function Card({ id, title, content, price, imageUrl }) {
 
 
             const handleConfirm = () => {
-                setShowModal(false);
+                closeModal();
                 navigate(`/product/${id}`);
             };
 
             function renderModal() {
-                if (!showModal) return null;
+                if (!isOpen) return null;
               
                 return (
                   <ConfirmModal
                     message={`${title}을(를) 상세보기 하시겠습니까?`}
                     onConfirm={handleConfirm}
-                    onCancel={() => setShowModal(false)}
+                    onCancel={closeModal}
                   />
                 );
               }
@@ -66,9 +68,7 @@ export default function Card({ id, title, content, price, imageUrl }) {
             </button> */}
 
 
-
-
-            <button className="buy-button" onClick={() => setShowModal(true)}>
+            <button className="buy-button" onClick={openModal}>
                 🧾 모달 확인 후 보기
             </button>
     
