@@ -1,11 +1,14 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom"; // React 요소(컴포넌트)를 실제 브라우저 DOM에 그려주는 도구
 import FocusLock from 'react-focus-lock';
 import "./ConfirmModal.css"; 
 
 export default function ConfirmModal({message, onConfirm, onCancel}) {
 
+    // -------------------- 🔒 Focus 관련 --------------------
     const confirmButtonRef = useRef(null); // ✅ 버튼 DOM 참조용 ref
+    //컴포넌트가 아직 “렌더링 되기 전”에는 ref가 연결될 DOM이 없으니까 일단 null로 초기화
+    // DOM 참조용으로 쓸 땐 항상 null**을 넣는 게 표준
 
     useEffect(() => {
         // 모달이 뜨면 "확인" 버튼에 포커스 주기
@@ -14,6 +17,18 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
         }
     }, []);
 
+    // -------------------- 🔒 Bg 관련 --------------------
+    const backdropRef = useRef(null); // 🔹 배경을 감지할 ref. 모달 배경 요소를 직접 가리킴
+
+    const handleBackdropClick = (e) => {
+        // 클릭한 대상이 backdrop 자체일 때만 닫기 실행
+        if (e.target === backdropRef.current) {
+          onCancel();
+        }
+      };
+
+
+    // -------------------- 🔒 Key Event 관련 --------------------
     // 🔥 useEffect 안에서 keydown 이벤트 등록
     useEffect(() => { // 컴포넌트가 렌더링된 다음에 실행
 
@@ -43,7 +58,11 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
     // ReactDOM.createPortal(ReactElement, DOM마운트위치)
     // 컴포넌트는 현재 위치에 있어도, 렌더링은 DOM의 다른 곳으로
     return ReactDOM.createPortal( 
-        <div className="modal-backdrop">
+        <div 
+            className="modal-backdrop" 
+            ref={backdropRef}
+            onClick={handleBackdropClick} // 🔹 클릭 이벤트 연결
+        >
         <FocusLock returnFocus> { /* FocusLock : 모달 내에서 포커스를 트랩하여 Tab 키를 눌러도 포커스가 모달 밖으로 나가지 않도록 함. returnFocus : 모달이 닫힐 때 이전에 포커스가 있던 요소로 포커스를 반환함.*/}
             <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-message">
                 <p id="modal-message">{message}</p>
