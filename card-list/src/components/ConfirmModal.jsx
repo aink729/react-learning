@@ -1,9 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom"; // React 요소(컴포넌트)를 실제 브라우저 DOM에 그려주는 도구
 import FocusLock from 'react-focus-lock';
 import "./ConfirmModal.css"; 
 
 export default function ConfirmModal({message, onConfirm, onCancel}) {
+
+
+    // -------------------- 🔒 Fade Ani 관련 --------------------
+    const [isVisible, setIsVisible] = useState(false); // 💡 애니메이션용 상태
 
     // -------------------- 🔒 Focus 관련 --------------------
     const confirmButtonRef = useRef(null); // ✅ 버튼 DOM 참조용 ref
@@ -15,6 +19,13 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
         if (confirmButtonRef.current) {
             confirmButtonRef.current.focus();
         }
+        // 💡 다음 프레임에 show 클래스 활성화
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 10); // 최소 지연 시간
+    
+        return () => clearTimeout(timer);
+
     }, []);
 
     // -------------------- 🔒 Bg 관련 --------------------
@@ -55,11 +66,14 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
     }, [onCancel, onConfirm]); // 💡 의존성 배열. 함수가 바뀌면 다시 등록
     
 
+
+
+
     // ReactDOM.createPortal(ReactElement, DOM마운트위치)
     // 컴포넌트는 현재 위치에 있어도, 렌더링은 DOM의 다른 곳으로
     return ReactDOM.createPortal( 
         <div 
-            className="modal-backdrop" 
+            className={`modal-backdrop ${isVisible ? "show" : ""}`}
             ref={backdropRef}
             onClick={handleBackdropClick} // 🔹 클릭 이벤트 연결
         >
