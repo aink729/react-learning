@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom"; // React 요소(컴포넌트)를 실제 브라우저 DOM에 그려주는 도구
+import FocusLock from 'react-focus-lock';
 import "./ConfirmModal.css"; 
 
 export default function ConfirmModal({message, onConfirm, onCancel}) {
@@ -43,6 +44,7 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
     // 컴포넌트는 현재 위치에 있어도, 렌더링은 DOM의 다른 곳으로
     return ReactDOM.createPortal( 
         <div className="modal-backdrop">
+        <FocusLock returnFocus> { /* FocusLock : 모달 내에서 포커스를 트랩하여 Tab 키를 눌러도 포커스가 모달 밖으로 나가지 않도록 함. returnFocus : 모달이 닫힐 때 이전에 포커스가 있던 요소로 포커스를 반환함.*/}
             <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-message">
                 <p id="modal-message">{message}</p>
                 <div className="modal-button">
@@ -56,6 +58,7 @@ export default function ConfirmModal({message, onConfirm, onCancel}) {
                     <button className="cancel" onClick={onCancel}>취소</button>
                 </div>
             </div>
+            </FocusLock>
         </div>,
         document.getElementById("modal-root") // ✅ 여기로 강제 렌더링
     )

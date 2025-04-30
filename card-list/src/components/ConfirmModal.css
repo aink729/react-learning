@@ -41,8 +41,16 @@
     border: none;
     border-radius: 4px;
   }
-
-  button:focus-visible{
+/* 마우스 클릭이나 프로그래밍적인 포커스 설정에서도 아웃라인이 뜸 */
+  /* button:focus { 
     outline: 2px solid #007bff;
+    outline-offset: 2px;
+  } */
+  /* 키보드로 포커스를 이동할 때만 아웃라인 */
+  button:focus-visible { 
+    outline:none;
+    outline-color: #007bff;
+    outline-style: solid;
+    outline-width: 2px;
     outline-offset: 2px;
   }
