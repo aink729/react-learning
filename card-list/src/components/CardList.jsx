@@ -18,6 +18,7 @@ export default function CardList() {
             {data.map((item) => (
                 <Card 
                     key={item.id} 
+                    id={item.id}
                     title={item.title} 
                     content={item.content} 
                     imageUrl={item.imageUrl}

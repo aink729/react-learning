@@ -1,35 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom"; //라우터에서 경로를 설정할 수 있는 컴포넌트 호출
+import MainPage from "./pages/MainPage";
+import ProductPage from "./pages/ProductPage";
+
+// 화면에 보여줄 컴포넌트를 결정하는 중심 컨트롤러, “지금 어떤 페이지를 보여줄지”
+// React Router를 사용할 경우, App.jsx 안에는 보통 Routes와 Route가 들어 있어
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/product/:id" element={<ProductPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
