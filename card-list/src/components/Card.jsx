@@ -11,7 +11,21 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
   // 여기에 변수, 함수, 조건문 등 자유롭게 작성 가능
 
   const navigate = useNavigate();
-  const { openModal } = useModalContext(); // 전역 모달 훅 꺼냄
+  // const { openModal } = useModalContext(); // 전역 모달 훅 꺼냄
+
+  const { openModalAsync } = useModalContext();
+  const handleClick = async () => {
+    const result = await openModalAsync("confirm", {
+      message: "정말 구매하시겠습니까?",
+    });
+  
+    if (result) {
+      // 사용자가 확인 눌렀을 때
+      console.log("✅ 구매 진행");
+    } else {
+      console.log("❌ 구매 취소");
+    }
+  };
   
         // const [showModal, setShowModal] = useState(false);
         // const { isOpen, openModal, closeModal } = useModal();
@@ -77,7 +91,7 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
         <button
                 className="buy-button"
                 onClick={() => {
-                  openModal("confirm", {
+                  openModalAsync("confirm", {
                     message: `${title}을(를) 상세보기 하시겠습니까?`,
                     onConfirm: () => navigate(`/product/${id}`),
                   });
@@ -89,7 +103,7 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
               <button
                 className="buy-button"
                 onClick={() => {
-                  openModal("alert", {
+                  openModalAsync("alert", {
                     message: `${title}은(는) 품절입니다.`,
                   });
                 }}

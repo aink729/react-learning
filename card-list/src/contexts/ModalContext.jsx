@@ -1,5 +1,4 @@
-
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useRef } from "react";
 // createContext: 전역 상태를 만들 때 사용
 // useContext: 어디서든 그 상태를 꺼내 쓰게 해줌
 // useState: 상태를 만들고 바꾸는 기본 Hook
@@ -12,6 +11,7 @@ const ModalContext = createContext();
 // children은 이 컴포넌트 안에 들어있는 컴포넌트들을 의미해.
 export function ModalProvider({ children }) {
   const [modalData, setModalData] = useState(null);
+  const resolverRef = useRef();
   // 모달에 들어갈 정보를 담는 상태 변수
   // 예: modalData = { type: "confirm", props: { message: "확인?" } }
 
@@ -23,19 +23,34 @@ export function ModalProvider({ children }) {
     setModalData({ type, props });
   };
 
+  const openModalAsync = (type, props) => {
+    setModalData({ type, props });
+    return new Promise((resolve) => {
+      resolverRef.current = resolve;
+    });
+  };
+
 
   // 모달 닫기 함수
   // 상태를 null로 만들어서 모달이 화면에서 사라지게 해.
   const closeModal = () => {
     setModalData(null);
   };
+  const confirmModal = (result) => {
+    resolverRef.current?.(result);
+    resolverRef.current = null;
+    closeModal();
+  };
 
   // ModalContext.Provider를 통해 하위 컴포넌트들이 모달 상태와 함수들을 사용할 수 있게 공유해주는 부분이야.
   return (
-    <ModalContext.Provider value={{ modalData, openModal, closeModal }}>
+    <ModalContext.Provider
+      value={{ modalData, openModal, openModalAsync, closeModal, confirmModal }}
+    >
       {children}
     </ModalContext.Provider>
   );
+
 }
 
 
