@@ -12,7 +12,7 @@ const data = [
 
 ];
 
-export default function CardList() {
+export default function CardList({ openConfirm, openAlert }) {
     return (
         <div className="catd-list">
             {data.map((item) => (
@@ -23,6 +23,8 @@ export default function CardList() {
                     content={item.content} 
                     imageUrl={item.imageUrl}
                     price={item.price}
+                    onConfirmClick={openConfirm}
+                    onAlertClick={openAlert}
                 />
             ))}
         </div>
