@@ -90,11 +90,14 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
 
         <button
                 className="buy-button"
-                onClick={() => {
-                  openModalAsync("confirm", {
+                onClick={async () => {
+                  const result = await openModalAsync("confirm", {
                     message: `${title}을(를) 상세보기 하시겠습니까?`,
-                    onConfirm: () => navigate(`/product/${id}`),
                   });
+                
+                  if (result) {
+                    navigate(`/product/${id}`);
+                  }
                 }}
               >
                 ✅ 확인 모달
@@ -102,9 +105,10 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
 
               <button
                 className="buy-button"
-                onClick={() => {
-                  openModalAsync("alert", {
-                    message: `${title}은(는) 품절입니다.`,
+                
+                onClick={async () => {
+                  await openModalAsync("alert", {
+                    message: `${title}은 품절`,
                   });
                 }}
               >
