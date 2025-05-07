@@ -14,18 +14,6 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
   // const { openModal } = useModalContext(); // 전역 모달 훅 꺼냄
 
   const { openModalAsync } = useModalContext();
-  const handleClick = async () => {
-    const result = await openModalAsync("confirm", {
-      message: "정말 구매하시겠습니까?",
-    });
-  
-    if (result) {
-      // 사용자가 확인 눌렀을 때
-      console.log("✅ 구매 진행");
-    } else {
-      console.log("❌ 구매 취소");
-    }
-  };
   
         // const [showModal, setShowModal] = useState(false);
         // const { isOpen, openModal, closeModal } = useModal();
@@ -73,9 +61,9 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
               <button
                 className="buy-button"
                 
-                onClick={async () => {
-                  await openModalAsync("alert", {
-                    message: `${title}은 품절`,
+                onClick={() => {
+                  openModalAsync("alert", {
+                    message: `${title} 품절.`,
                   });
                 }}
               >
