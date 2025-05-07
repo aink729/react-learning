@@ -67,20 +67,18 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
                 ✅ 확인 후 보기
             </button> */}
 
-
             {/* <button className="buy-button" onClick={openModal}>
                 🧾 모달 확인 후 보기
             </button> */}
-            
-            <button className="buy-button" onClick={() => onConfirmClick(id)}>
+
+            <button className="buy-button" onClick={() => onConfirmClick(id, title)}>
               ✅ 확인 모달
             </button>
 
-            <button className="buy-button" onClick={() => onAlertClick(id)}>
+            <button className="buy-button" onClick={() => onAlertClick(id, title)}>
               🧾 알림 모달
             </button>
-    
-
+  
             {/* {renderModal()} */}
             
         </div>
