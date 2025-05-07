@@ -32,39 +32,6 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
 
 
 
-        // ✅ 1. 바로 이동하는 방식
-        // const handleDirectClick = () => {
-        //     navigate(`/product/${id}`);
-        // };
-
-
-        // ✅ 2. 확인 후 이동하는 방식
-        // const handleConfirmClick = () => {
-        //     const answer = window.confirm(`${title}을(를) 정말 보시겠습니까?`);
-        //     if (answer) {
-        //       navigate(`/product/${id}`);
-        //     }
-        // };
-
-
-            // const handleConfirm = () => {
-            //     // closeModal();
-            //     navigate(`/product/${id}`);
-            // };
-
-            // function renderModal() {
-            //     if (!isOpen) return null;
-              
-            //     return (
-            //       <ConfirmModal
-            //         message={`${title}을(를) 상세보기 하시겠습니까?`}
-            //         onConfirm={handleConfirm}
-            //         onCancel={closeModal}
-            //       />
-            //     );
-            //   }
-
-
     return (
          // 👉 여기는 JSX 반환 (HTML 구조, 실제로 화면에 표시할 JSX만 작성)
          <div className="card">
