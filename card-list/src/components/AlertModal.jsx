@@ -74,6 +74,7 @@ export default function AlertModal({ message, onClose }) {
       <div 
           className={`modal-backdrop ${isVisible ? "show" : ""}`}
           ref={backdropRef}
+          onClick={handleBackdropClick} // 🔹 클릭 이벤트 연결
       >
       <FocusLock returnFocus> { /* FocusLock : 모달 내에서 포커스를 트랩하여 Tab 키를 눌러도 포커스가 모달 밖으로 나가지 않도록 함. returnFocus : 모달이 닫힐 때 이전에 포커스가 있던 요소로 포커스를 반환함.*/}
           <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-message">
