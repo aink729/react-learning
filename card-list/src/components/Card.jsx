@@ -10,6 +10,7 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
     // 👉 여기는 JavaScript 영역 (로직 작성)
   // 여기에 변수, 함수, 조건문 등 자유롭게 작성 가능
 
+
   const navigate = useNavigate();
   // const { openModal } = useModalContext(); // 전역 모달 훅 꺼냄
 
@@ -18,6 +19,22 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
         // const [showModal, setShowModal] = useState(false);
         // const { isOpen, openModal, closeModal } = useModal();
 
+        // 🔹 컴포넌트 상단 (JS 영역)에 선언
+        const handleConfirmClick = async () => {
+          const result = await openModalAsync("confirm", {
+            message: `${title}을(를) 상세보기 하시겠습니까?`,
+          });
+
+          if (result) {
+            navigate(`/product/${id}`);
+          }
+        };
+
+        const handleAlertClick = () => {
+          openModalAsync("alert", {
+            message: `${title} 품절.`,
+          });
+        };
 
 
     return (
@@ -43,7 +60,7 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
                 🧾 모달 확인 후 보기
             </button> */}
 
-        <button
+            {/* <button
                 className="buy-button"
                 onClick={async () => {
                   const result = await openModalAsync("confirm", {
@@ -68,7 +85,15 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
                 }}
               >
                 🧾 알림 모달
-              </button>
+              </button> */}
+
+          <button className="buy-button" onClick={handleConfirmClick}>
+            ✅ 확인 모달
+          </button>
+
+          <button className="buy-button" onClick={handleAlertClick}>
+            🧾 알림 모달
+          </button>
   
             {/* {renderModal()} */}
             
