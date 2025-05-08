@@ -6,7 +6,7 @@ import './Card.css'; // css 파일 불러오기
 // import ConfirmModal from './ConfirmModal'; // 모달 컴포넌트 호출
 
 //컴포넌트는 "준비 영역(위쪽)" + "실행 결과 반환(return)"
-export default function Card({ id, title, content, price, imageUrl, onConfirmClick, onAlertClick }) {
+export default function Card({ id, title, content, price, imageUrl, message}) {
     // 👉 여기는 JavaScript 영역 (로직 작성)
   // 여기에 변수, 함수, 조건문 등 자유롭게 작성 가능
 
@@ -22,7 +22,7 @@ export default function Card({ id, title, content, price, imageUrl, onConfirmCli
         // 🔹 확인 모달 클릭 핸들러
         const handleConfirmClick = async () => {
           const result = await openModalAsync("confirm", {
-            message: `${title}을(를) 상세보기 하시겠습니까?`,
+            message: message || `${title}을(를) 상세보기 하시겠습니까?`,
           });
 
           if (result) {
