@@ -76,6 +76,28 @@
   opacity: 1;
 }
 
+.modal-message-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+/* show 클래스가 붙었을 때 트리거 */
+.modal-backdrop.show .modal-message-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.modal-soldout {
+  color: red;
+  font-weight: bold;
+}
+
 
   .modal-buttons {
     margin-top: 1.5rem;
