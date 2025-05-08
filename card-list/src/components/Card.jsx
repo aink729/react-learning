@@ -6,7 +6,7 @@ import './Card.css'; // css 파일 불러오기
 // import ConfirmModal from './ConfirmModal'; // 모달 컴포넌트 호출
 
 //컴포넌트는 "준비 영역(위쪽)" + "실행 결과 반환(return)"
-export default function Card({ id, title, content, price, imageUrl, message}) {
+export default function Card({ id, title, content, price, imageUrl, soldOut, message}) {
     // 👉 여기는 JavaScript 영역 (로직 작성)
   // 여기에 변수, 함수, 조건문 등 자유롭게 작성 가능
 
@@ -89,14 +89,19 @@ export default function Card({ id, title, content, price, imageUrl, message}) {
                 🧾 알림 모달
               </button> */}
 
-          <button className="buy-button" onClick={handleConfirmClick}>
-            ✅ 확인 모달
-          </button>
 
-          <button className="buy-button" onClick={handleAlertClick}>
-            🧾 알림 모달
-          </button>
-  
+          {/* ✅ 조건부 렌더링 */}
+            {soldOut ? (
+                        <button className="buy-button soldout" onClick={handleAlertClick}>
+                           ❌ 품절
+                        </button>
+
+              ) : (
+                        <button className="buy-button" onClick={handleConfirmClick}>
+                           🔎 상세 보기
+                        </button>
+                
+              )}
             {/* {renderModal()} */}
             
         </div>

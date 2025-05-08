@@ -3,17 +3,15 @@ import './CardList.css';
 
 
 const data = [
-    { id: 1, title: "첫 번째 상품", content: "내용 A", price: "₩29,000", imageUrl: "https://placehold.co/300x200", message: "안녕 나는 첫번째상품이야" },
-  { id: 2, title: "두 번째 상품", content: "내용 B", price: "₩49,000", imageUrl: "https://placehold.co/300x200", message: ""},
-  { id: 3, title: "세 번째 상품", content: "내용 C", price: "₩19,000", imageUrl: "https://placehold.co/300x200", message: "" },
-  { id: 4, title: "네 번째 상품", content: "내용 D", price: "₩59,000", imageUrl: "https://placehold.co/300x200", message: "" },
-  { id: 5, title: "다섯 번째 상품", content: "내용 E", price: "₩99,000", imageUrl: "https://placehold.co/300x200", message: "" },
-  { id: 6, title: "여섯 번째 상품", content: "내용 F", price: "₩15,000", imageUrl: "https://placehold.co/300x200", message: "" },
-  { id: 7, title: "일곱 번째 상품", content: "내용 G", price: "₩13,000", imageUrl: "https://placehold.co/300x200", message: "" }
+
+  { id: 1, title: "🍎 사과", content: "상큼한 맛", price: "$3", soldOut: true, imageUrl: "https://placehold.co/300x200?text=Apple", message: "안녕 나는 사과야" },
+  { id: 2, title: "🍌 바나나", content: "달콤한 맛", price: "$2", soldOut: true, imageUrl: "https://placehold.co/300x200?text=Banana" },
+  { id: 3, title: "🍇 포도", content: "진한 맛", price: "$4", soldOut: false, imageUrl: "https://placehold.co/300x200?text=Grape" },
+  { id: 4, title: "🥝 키위", content: "새콤한 맛", price: "$5", soldOut: false, imageUrl: "https://placehold.co/300x200?text=Kiwi" }
 
 ];
 
-export default function CardList({ openConfirm, openAlert }) {
+export default function CardList({}) {
     return (
         <div className="card-list">
             {data.map((item) => (
@@ -23,10 +21,9 @@ export default function CardList({ openConfirm, openAlert }) {
                     title={item.title} 
                     content={item.content} 
                     imageUrl={item.imageUrl}
+                    soldOut={item.soldOut}
                     price={item.price}
                     message={item.message}
-                    onConfirmClick={openConfirm}
-                    onAlertClick={openAlert}
                 />
             ))}
         </div>

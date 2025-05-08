@@ -9,14 +9,10 @@ import ModalRenderer from "./components/ModalRenderer";
 
 function App() {
   return (
-    <ModalProvider>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
-
-      <ModalRenderer /> 
-    </ModalProvider>
   );
 }
 
