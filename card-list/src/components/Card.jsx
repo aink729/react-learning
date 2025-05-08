@@ -46,19 +46,18 @@ export default function Card({ id, title, content, price, imageUrl, soldOut, mes
         const handleModalClick = async () => {
           const type = soldOut ? "alert" : "confirm";
 
-          
           const result = await openModalAsync(type, {
             // 모달에서 사용자가 '확인' 누를 때까지 기다림
             message: (
-              <div style={{ textAlign: "center" }}>
+              <div className="modal-message-content">
                 <img
                   src={imageUrl}
                   alt={title}
-                  style={{ width: "100%", borderRadius: "8px" }}
+                  className="modal-image"
                 />
                 <h3 style={{ marginTop: "1rem" }}>{title}</h3>
                 {soldOut ? (
-                  <p style={{ color: "red" }}>❌ 현재 품절된 상품입니다.</p>
+                  <p className="modal-soldout">❌ 현재 품절된 상품입니다.</p>
                 ) : (
                   <>
                     <p>구매하시겠습니까?</p>
