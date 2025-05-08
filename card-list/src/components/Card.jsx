@@ -132,6 +132,8 @@ export default function Card({ id, title, content, price, imageUrl, soldOut, mes
           <button
             className={`buy-button ${soldOut ? "soldout" : ""}`}
             onClick={handleModalClick}
+
+            // disabled={`${soldOut ? "disabled" : ""}`}
           >
             {soldOut ? "❌ 품절" : "🔎 상세 보기"}
           </button>
