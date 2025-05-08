@@ -40,10 +40,15 @@ export default function Card({ id, title, content, price, imageUrl, soldOut, mes
 
 
         // 조건부 렌더링으로 함수 하나 통합
-        const handleModalClick = async () => {
+        // async가 붙으면 해당 함수는 자동으로 Promise를 반환해.
+        // await는 오직 async 함수 안에서만 사용할 수 있어. 비동기 작업이 끝날 때까지 기다린다는 뜻
 
+        const handleModalClick = async () => {
           const type = soldOut ? "alert" : "confirm";
+
+          
           const result = await openModalAsync(type, {
+            // 모달에서 사용자가 '확인' 누를 때까지 기다림
             message: (
               <div style={{ textAlign: "center" }}>
                 <img
