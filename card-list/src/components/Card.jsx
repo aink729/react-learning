@@ -20,22 +20,56 @@ export default function Card({ id, title, content, price, imageUrl, soldOut, mes
         // const { isOpen, openModal, closeModal } = useModal();
 
         // 🔹 확인 모달 클릭 핸들러
-        const handleConfirmClick = async () => {
-          const result = await openModalAsync("confirm", {
-            message: message || `${title}을(를) 상세보기 하시겠습니까?`,
-          });
+        // const handleConfirmClick = async () => {
+        //   const result = await openModalAsync("confirm", {
+        //     message: message || `${title}을(를) 상세보기 하시겠습니까?`,
+        //   });
 
-          if (result) {
-            navigate(`/product/${id}`);
-          }
-        };
+        //   if (result) {
+        //     navigate(`/product/${id}`);
+        //   }
+        // };
 
 
         // 🔹 알림 모달 클릭 핸들러
-        const handleAlertClick = () => {
-          openModalAsync("alert", {
-            message: `${title} 품절.`,
+        // const handleAlertClick = () => {
+        //   openModalAsync("alert", {
+        //     message: `${title} 품절.`,
+        //   });
+        // };
+
+
+        // 조건부 렌더링으로 함수 하나 통합
+        const handleModalClick = async () => {
+
+          const type = soldOut ? "alert" : "confirm";
+          const result = await openModalAsync(type, {
+            message: (
+              <div style={{ textAlign: "center" }}>
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  style={{ width: "100%", borderRadius: "8px" }}
+                />
+                <h3 style={{ marginTop: "1rem" }}>{title}</h3>
+                {soldOut ? (
+                  <p style={{ color: "red" }}>❌ 현재 품절된 상품입니다.</p>
+                ) : (
+                  <>
+                    <p>구매하시겠습니까?</p>
+                    <p>
+                      가격: <strong>{price}</strong>
+                    </p>
+                  </>
+                )}
+              </div>
+            ),
           });
+
+
+          if (result && !soldOut) {
+            navigate(`/product/${id}`);
+          }
         };
 
 
@@ -91,17 +125,12 @@ export default function Card({ id, title, content, price, imageUrl, soldOut, mes
 
 
           {/* ✅ 조건부 렌더링 */}
-            {soldOut ? (
-                        <button className="buy-button soldout" onClick={handleAlertClick}>
-                           ❌ 품절
-                        </button>
-
-              ) : (
-                        <button className="buy-button" onClick={handleConfirmClick}>
-                           🔎 상세 보기
-                        </button>
-                
-              )}
+          <button
+            className={`buy-button ${soldOut ? "soldout" : ""}`}
+            onClick={handleModalClick}
+          >
+            {soldOut ? "❌ 품절" : "🔎 상세 보기"}
+          </button>
             {/* {renderModal()} */}
             
         </div>
