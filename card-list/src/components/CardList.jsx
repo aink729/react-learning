@@ -15,7 +15,7 @@ const data = [
 
 export default function CardList({ openConfirm, openAlert }) {
     return (
-        <div className="catd-list">
+        <div className="card-list">
             {data.map((item) => (
                 <Card 
                     key={item.id} 
