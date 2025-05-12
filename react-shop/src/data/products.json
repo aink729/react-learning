@@ -1,5 +1,6 @@
 [
   {
+    "id":1,
     "title": "에코백",
     "content": "튼튼하고 실용적인 면 소재 에코백",
     "price": 12000,
@@ -7,6 +8,7 @@
     "soldOut": false
   },
   {
+    "id":2,
     "title": "텀블러",
     "content": "환경을 생각한 스테인리스 텀블러",
     "price": 18000,
@@ -14,6 +16,7 @@
     "soldOut": true
   },
   {
+    "id":3,
     "title": "캔들",
     "content": "은은한 향이 나는 힐링 캔들",
     "price": 15000,
@@ -21,6 +24,7 @@
     "soldOut": false
   },
   {
+    "id":4,
     "title": "포스터",
     "content": "감성적인 디자인의 인테리어 포스터",
     "price": 8000,
@@ -28,10 +32,19 @@
     "soldOut": true
   },
   {
+    "id":5,
     "title": "무지 노트",
     "content": "깔끔한 디자인의 무지 노트",
     "price": 5000,
     "imageUrl": "https://placehold.co/300x200?text=note",
+    "soldOut": false
+  },
+  {
+    "id":6,
+    "title": "4B 연필",
+    "content": "진하게 잘 써지는 연필",
+    "price": 2300,
+    "imageUrl": "https://placehold.co/300x200?text=pencil",
     "soldOut": false
   }
 ]
