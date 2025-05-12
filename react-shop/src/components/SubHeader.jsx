@@ -5,7 +5,7 @@ export default function Header (){
     return (
         <header className={styles.header}>
             <div className={styles['header-inner']}>
-                <button className={styles[btn-back]} onClick={() => navigate(-1)}>
+                <button className={styles['btn-back']} onClick={() => navigate(-1)}>
                     ← 이전으로
                 </button>
                 <h2 className={styles.pageTitle}>상세 페이지</h2>

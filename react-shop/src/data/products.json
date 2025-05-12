@@ -3,35 +3,35 @@
     "title": "에코백",
     "content": "튼튼하고 실용적인 면 소재 에코백",
     "price": 12000,
-    "imageUrl": "https://placehold.co/300x200?text=%EC%97%90%EC%BD%94%EB%B0%B1",
+    "imageUrl": "https://placehold.co/300x200?text=bag",
     "soldOut": false
   },
   {
     "title": "텀블러",
     "content": "환경을 생각한 스테인리스 텀블러",
     "price": 18000,
-    "imageUrl": "https://placehold.co/300x200?text=%ED%85%80%EB%B8%94%EB%9F%AC",
-    "soldOut": false
+    "imageUrl": "https://placehold.co/300x200?text=tumblr",
+    "soldOut": true
   },
   {
     "title": "캔들",
     "content": "은은한 향이 나는 힐링 캔들",
     "price": 15000,
-    "imageUrl": "https://placehold.co/300x200?text=%EC%BA%94%EB%93%A4",
+    "imageUrl": "https://placehold.co/300x200?text=candle",
     "soldOut": false
   },
   {
     "title": "포스터",
     "content": "감성적인 디자인의 인테리어 포스터",
     "price": 8000,
-    "imageUrl": "https://placehold.co/300x200?text=%ED%8F%AC%EC%8A%A4%ED%84%B0",
+    "imageUrl": "https://placehold.co/300x200?text=poster",
     "soldOut": true
   },
   {
     "title": "무지 노트",
     "content": "깔끔한 디자인의 무지 노트",
     "price": 5000,
-    "imageUrl": "https://placehold.co/300x200?text=%EB%85%B8%ED%8A%B8",
+    "imageUrl": "https://placehold.co/300x200?text=note",
     "soldOut": false
   }
 ]

@@ -26,7 +26,7 @@ export default function Card ({id, title, content, price, imageUrl, soldOut}) {
             <button type="button" 
              className={`buy-button ${soldOut ? 'disabled' : ''}`}
              onClick={handleClick}
-            disabled={soldOut}
+            //disabled={soldOut}
             aria-label={
                 soldOut
                   ? `${title} 상품은 품절되었습니다`
