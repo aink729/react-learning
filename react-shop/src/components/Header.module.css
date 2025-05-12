@@ -1,0 +1,111 @@
+.header{
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color:#000;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+
+.logo img {
+    height: 40px;
+  }
+
+
+
+/* 네비게이션 */
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+  }
+  
+  .link:hover {
+    color: #007bff;
+  }
+  
+  /* 로그인 / 회원가입 */
+  .auth-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .login {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .login:hover {
+    background-color: #0056b3;
+  }
+  
+  .join {
+    /* 동일하거나 약간 다른 스타일 */
+    padding: 0.5rem 1rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+
+
+  /* src/components/SubHeader.module.css */
+.subHeader {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  
+  .btn-back {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  .btn-back:hover {
+    text-decoration: underline;
+  }
+  
+  .pageTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }

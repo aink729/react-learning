@@ -1,0 +1,11 @@
+/* 레이아웃 전용 스타일 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main {
+  padding-top: 4rem;/* header 높이 고려 */
+  flex: 1;
+}
