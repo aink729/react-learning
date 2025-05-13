@@ -52,6 +52,14 @@ export default function DetailPage() {
     <div className={styles['sub-layout']}>
       <div className={styles['sub-inner']}>
 
+        <div className={styles.breadcrumb}>
+          <span>
+            <Link to="/">홈</Link> &gt;&nbsp;
+            <Link to={`/list?category=${product.category}`}>{product.category}</Link> &gt;&nbsp;
+            <span>{product.title}</span>
+          </span>
+        </div>
+
         <div className={styles.navBox}>
           { prevProduct ? (
               <Link to={`/detail/${prevProduct.id}`} className={styles.navButton}>
