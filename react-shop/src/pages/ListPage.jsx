@@ -1,7 +1,6 @@
 import Card from "../components/Card"
 import products from "../data/products.json"
 import styles from "./List.module.css"
-import { useLocation } from "react-router-dom";
 import useQuery from "../hooks/useQuery";
 
 
