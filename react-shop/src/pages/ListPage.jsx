@@ -27,7 +27,7 @@ export default function ListPage() {
       <div className={styles['card-list']}>
         <h1>{category ? `"${category}" 카테고리` : "전체 상품 목록"}</h1>
         <div className={styles['card-grid']}>
-          {products.map((item) => (
+          {filteredProducts.map((item) => (
             <Card 
               key={item.id}
               id={item.id}
