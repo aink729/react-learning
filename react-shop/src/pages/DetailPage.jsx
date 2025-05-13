@@ -8,6 +8,9 @@ export default function DetailPage() {
   const productId = Number(id); // 또는 parseInt(id)
   const product = products.find((item) => item.id === productId); // item.id 숫자(Number), parseInt(id) 숫자로 변환
 
+  const currentIndex = products.findIndex((item) => item.id === productId);
+  const prevProduct = products[currentIndex - 1];
+  const nextProduct = products[currentIndex + 1];
   // const recommended = products.filter((item) => item.id !== Number(id)).slice(0,4);
   // 랜덤으로 4개 추출
   // const recommended = products
@@ -48,6 +51,20 @@ export default function DetailPage() {
   return(
     <div className={styles['sub-layout']}>
       <div className={styles['sub-inner']}>
+
+        <div className={styles.navBox}>
+          { prevProduct ? (
+              <Link to={`/detail/${prevProduct.id}`} className={styles.navButton}>
+                ← {prevProduct.title}
+              </Link>
+          ) : <div></div>}
+          { nextProduct ? (
+              <Link to={`/detail/${nextProduct.id}`} className={styles.navButton}>
+                {nextProduct.title} →
+              </Link>
+          ) : <div></div>}
+        </div>
+
         <div className={styles.info}>
           <img className={styles.img} src={product.imageUrl} alt={`${product.title} 이미지`} />
           <h2>{product.title}</h2>

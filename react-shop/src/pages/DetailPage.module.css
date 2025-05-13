@@ -96,3 +96,20 @@
     grid-template-columns: 1fr;
   }
 }
+
+.navBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  width:100%;
+}
+.navButton {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+.navButton:hover {
+  color: #0056b3;
+}
+
