@@ -9,7 +9,7 @@
 }
 
 
-  .image {
+  .img {
     width: 300px;
     border-radius: 8px;
     object-fit: cover;
@@ -44,3 +44,10 @@
   .buyButton:hover {
     background-color: #0056b3;
   }
+
+
+  .recommend{margin:100px auto 0;}
+
+  .recommendList{display:flex;flex-wrap: wrap;gap:20px}
+  .recommendItem {flex:20% 1 1}
+  .recommendItem img{max-width:100%;}

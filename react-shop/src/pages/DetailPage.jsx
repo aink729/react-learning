@@ -5,7 +5,9 @@ import styles from "./DetailPage.module.css";
 export default function DetailPage() {
   const { id } = useParams();  // 경로 파라미터 받아오기
   const product = products.find((item) => item.id === parseInt(id)); 
+  const recommended = products.filter((item) => item.id !== Number(id)).slice(0,4);
 
+  // id가 없는 페이지를 열 경우
   if(!product) {
     return (
       <div className={styles['sub-layout']}>
@@ -30,6 +32,19 @@ export default function DetailPage() {
               <button className={styles.buyButton}>구매하기</button>
             )
           }
+        </div>
+
+        <div className={styles.recommend}>
+          <h3>추천 상품</h3>
+          <ul className={styles.recommendList}>
+            {recommended.map((item) => (
+              <li key={item.id} className={styles.recommendItem}>
+                <img src={item.imageUrl} alt={`${item.title} 이미지`} />
+                <p>{item.title}</p>
+                <p>{item.price.toLocaleString()}원</p>
+              </li>
+            ))}
+          </ul>
         </div>
         { /* 나중에 product.json에서 Id로 해당 상품 찾아서 보여줘도 돼요! */ }
       </div>

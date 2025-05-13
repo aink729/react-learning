@@ -1,50 +1,90 @@
 [
   {
-    "id":1,
-    "title": "에코백",
-    "content": "튼튼하고 실용적인 면 소재 에코백",
-    "price": 12000,
-    "imageUrl": "https://placehold.co/300x200?text=bag",
+    "id": 1,
+    "title": "아메리카노",
+    "content": "진한 에스프레소에 물을 더한 기본 커피",
+    "price": 3000,
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1670469009826-db07ab733925?q=80&w=3086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "soldOut": false
   },
   {
-    "id":2,
-    "title": "텀블러",
-    "content": "환경을 생각한 스테인리스 텀블러",
-    "price": 18000,
-    "imageUrl": "https://placehold.co/300x200?text=tumblr",
-    "soldOut": true
-  },
-  {
-    "id":3,
-    "title": "캔들",
-    "content": "은은한 향이 나는 힐링 캔들",
-    "price": 15000,
-    "imageUrl": "https://placehold.co/300x200?text=candle",
+    "id": 2,
+    "title": "카페라떼",
+    "content": "부드러운 우유가 어우러진 라떼",
+    "price": 3500,
+    "imageUrl": "https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "soldOut": false
   },
   {
-    "id":4,
-    "title": "포스터",
-    "content": "감성적인 디자인의 인테리어 포스터",
-    "price": 8000,
-    "imageUrl": "https://placehold.co/300x200?text=poster",
+    "id": 3,
+    "title": "바닐라라떼",
+    "content": "달콤한 바닐라 시럽이 더해진 라떼",
+    "price": 3800,
+    "imageUrl": "https://images.unsplash.com/photo-1504194472231-5a5294eddc43?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "soldOut": true
   },
   {
-    "id":5,
-    "title": "무지 노트",
-    "content": "깔끔한 디자인의 무지 노트",
+    "id": 4,
+    "title": "콜드브루",
+    "content": "시간을 들여 추출한 부드러운 콜드브루 커피",
+    "price": 4000,
+    "imageUrl": "https://images.unsplash.com/photo-1572569080463-58088e2892bb?q=80&w=3145&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": false
+  },
+  {
+    "id": 5,
+    "title": "녹차 라떼",
+    "content": "말차와 우유가 어우러진 녹차 라떼",
+    "price": 4200,
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1694790026743-b405c003ba16?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": false
+  },
+  {
+    "id": 6,
+    "title": "초코 프라푸치노",
+    "content": "초콜릿이 듬뿍 들어간 시원한 프라푸치노",
+    "price": 4500,
+    "imageUrl": "https://images.unsplash.com/photo-1627998792088-f8016b438988?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": true
+  },
+  {
+    "id": 7,
+    "title": "복숭아 아이스티",
+    "content": "달콤하고 시원한 복숭아 향 아이스티",
+    "price": 3200,
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1687977548223-73e0e7a8e467?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": false
+  },
+  {
+    "id": 8,
+    "title": "유자차",
+    "content": "향긋하고 따뜻한 유자차",
+    "price": 3000,
+    "imageUrl": "https://images.unsplash.com/photo-1631682477691-9021a9218860?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": false
+  },
+  {
+    "id": 9,
+    "title": "크로플",
+    "content": "겉은 바삭하고 속은 촉촉한 크로플 디저트",
+    "price": 4800,
+    "imageUrl": "https://images.unsplash.com/photo-1648382721279-5e33912452e7?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": false
+  },
+  {
+    "id": 10,
+    "title": "티라미수",
+    "content": "부드러운 마스카포네와 에스프레소의 조화",
     "price": 5000,
-    "imageUrl": "https://placehold.co/300x200?text=note",
-    "soldOut": false
+    "imageUrl": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "soldOut": true
   },
   {
-    "id":6,
-    "title": "4B 연필",
-    "content": "진하게 잘 써지는 연필",
-    "price": 2300,
-    "imageUrl": "https://placehold.co/300x200?text=pencil",
+    "id": 11,
+    "title": "치즈케이크",
+    "content": "진한 크림치즈의 풍미가 느껴지는 케이크",
+    "price": 4700,
+    "imageUrl": "https://images.unsplash.com/photo-1702925614886-50ad13c88d3f?q=80&w=2641&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "soldOut": false
   }
 ]
