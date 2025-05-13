@@ -48,6 +48,52 @@
 
   .recommend{margin:100px auto 0;}
 
-  .recommendList{display:flex;flex-wrap: wrap;gap:20px}
-  .recommendItem {flex:20% 1 1}
-  .recommendItem img{max-width:100%;}
+  .recommendList{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;}
+  .recommendItem {flex:calc(25% - 20px) 0 1}
+  .recommendItem {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .recommendItem:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .recommendItem img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+
+
+/* 화면이 1024px 이하일 때: 3열 */
+@media (max-width: 1024px) {
+  .recommendList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 화면이 768px 이하일 때: 2열 */
+@media (max-width: 768px) {
+  .recommendList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 화면이 480px 이하일 때: 1열 */
+@media (max-width: 480px) {
+  .recommendList {
+    grid-template-columns: 1fr;
+  }
+}

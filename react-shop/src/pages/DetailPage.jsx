@@ -4,8 +4,10 @@ import styles from "./DetailPage.module.css";
 
 export default function DetailPage() {
   const { id } = useParams();  // 경로 파라미터 받아오기
-  const product = products.find((item) => item.id === parseInt(id)); 
+  const product = products.find((item) => item.id === parseInt(id)); // item.id 숫자(Number), parseInt(id) 숫자로 변환
   const recommended = products.filter((item) => item.id !== Number(id)).slice(0,4);
+  // 현재 상품과 같은 카테고리이지만, 현재 상품은 제외
+  const recommendedCate = products.filter((item) => item.category === product.category && item.id !== product.id)
 
   // id가 없는 페이지를 열 경우
   if(!product) {
@@ -38,6 +40,19 @@ export default function DetailPage() {
           <h3>추천 상품</h3>
           <ul className={styles.recommendList}>
             {recommended.map((item) => (
+              <li key={item.id} className={styles.recommendItem}>
+                <img src={item.imageUrl} alt={`${item.title} 이미지`} />
+                <p>{item.title}</p>
+                <p>{item.price.toLocaleString()}원</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.recommend}>
+          <h3>같은 카테고리 내 추천 상품</h3>
+          <ul className={styles.recommendList}>
+            {recommendedCate.map((item) => (
               <li key={item.id} className={styles.recommendItem}>
                 <img src={item.imageUrl} alt={`${item.title} 이미지`} />
                 <p>{item.title}</p>
