@@ -53,9 +53,7 @@
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 1rem;
     margin-top: 2rem;}
-  .recommendItem {flex:calc(25% - 20px) 0 1}
-  .recommendItem {
-    background: #fff;
+  .recommendItem {background: #fff;
     padding: 1rem;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -68,6 +66,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
+  .recommendLink{display:block;width:100%;;}
   .recommendItem img {
     width: 100%;
     height: auto;

@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import products from "../data/products.json";
 import styles from "./DetailPage.module.css";
 
@@ -37,14 +38,20 @@ export default function DetailPage() {
         </div>
 
         <div className={styles.recommend}>
-          <h3>추천 상품</h3>
+          <h3>이 상품과 함께 보면 좋은 추천 상품</h3>
           <ul className={styles.recommendList}>
             {recommended.map((item) => (
-              <li key={item.id} className={styles.recommendItem}>
-                <img src={item.imageUrl} alt={`${item.title} 이미지`} />
-                <p>{item.title}</p>
-                <p>{item.price.toLocaleString()}원</p>
-              </li>
+                <li key={item.id} className={styles.recommendItem}>
+                  <Link
+                    key={item.id}
+                    to={`/detail/${item.id}`}
+                    className={styles.recommendLink}
+                  >
+                    <img src={item.imageUrl} alt={`${item.title} 이미지`} />
+                    <p>{item.title}</p>
+                    <p>{item.price.toLocaleString()}원</p>
+                  </Link>
+                </li>
             ))}
           </ul>
         </div>
