@@ -2,6 +2,7 @@ import Card from "../components/Card"
 import products from "../data/products.json"
 import styles from "./List.module.css"
 import useQuery from "../hooks/useQuery";
+import { useEffect } from "react";
 
 
 export default function ListPage() {
@@ -16,6 +17,15 @@ export default function ListPage() {
     const filteredProducts = category
      ? products.filter((item) => item.category === category )
      : products;
+
+    const isValidCategory = !category || products.some(product => product.category === category);
+
+    useEffect(() => {
+      if (!isValidCategory) {
+        alert("잘못된 카테고리입니다.");
+        window.location.href = "/list";
+      }
+    }, [isValidCategory]);
 
     return (
       <div className={styles['card-list']}>
